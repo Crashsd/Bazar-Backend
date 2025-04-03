@@ -1,8 +1,0 @@
-FROM openjdk:21-jdk-slim
-ARG JAR_FILE=target/proyectoFinal-0.0.1.jar
-WORKDIR /app
-LABEL maintainer="your-email@example.com"
-COPY ${JAR_FILE} final_app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "final_app.jar"]
-HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 CMD curl -f http://localhost:8080/actuator/health || exit 1
